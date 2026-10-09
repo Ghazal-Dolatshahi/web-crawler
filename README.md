@@ -60,19 +60,6 @@ crawled_output/
 └── crawl.log         # full log
 ```
 
-## Configuration
-
-| Option | Default | Description |
-|---|---|---|
-| `START_URL` | `https://www.technolife.com/` | Seed URL |
-| `MAX_PAGES` | `200` | Maximum number of pages to download |
-| `ALLOW_SUBDOMAINS` | `True` | Also crawl subdomains of the seed domain |
-| `TIMEOUT` | `15` | Request timeout (seconds) |
-| `REQUEST_DELAY` | `0.5` | Delay between requests (seconds) |
-| `MAX_RETRIES` | `2` | Retries per URL on network errors |
-| `RETRY_BACKOFF_SECONDS` | `2` | Wait time between retries |
-| `RESPECT_ROBOTS_TXT` | `False` | Follow `robots.txt` rules |
-
 ## Sample results
 
 A run on `https://www.technolife.com/` with `MAX_PAGES = 200`:
@@ -88,13 +75,3 @@ A run on `https://www.technolife.com/` with `MAX_PAGES = 200`:
 | Errors | 0 |
 
 Link filtering breakdown: 22,524 accepted, 3,769 already visited, 3,467 from other domains, 372 with non-HTML extensions.
-
-## Limitations
-
-- Single-threaded, so it is slow on large crawls.
-- Only fetches raw HTML. It does not execute JavaScript, so links rendered client-side are not discovered.
-- No persistence of the queue: if the crawl stops, it starts over.
-
-## Responsible use
-
-`RESPECT_ROBOTS_TXT` is `False` by default in this educational project. When crawling any real website, set it to `True`, keep a reasonable `REQUEST_DELAY`, and follow the site's terms of use.
