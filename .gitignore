@@ -1,0 +1,12 @@
+# Crawler output (large)
+crawled_output/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
